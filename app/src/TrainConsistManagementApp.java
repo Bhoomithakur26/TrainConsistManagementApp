@@ -70,33 +70,59 @@ public class TrainConsistApp {
         System.out.println("\nUC3 operations completed successfully...");
     }
 }
-public class TrainConsistApp {
+public class UseCase4TrainConsistMgmt {
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println(" UC2 - Add Passenger Bogies to Train ");
+        System.out.println(" UC4 - Maintain Ordered Bogie Consist ");
         System.out.println("========================================\n");
 
-        List<String> passengerBogies = new ArrayList<>();
+        List<String> trainConsist = new LinkedList<>();
 
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        trainConsist.add("Engine");
+        trainConsist.add("Sleeper");
+        trainConsist.add("AC");
+        trainConsist.add("Cargo");
+        trainConsist.add("Guard");
 
-        System.out.println("After Adding Bogies:");
-        System.out.println("Passenger Bogies : " + passengerBogies);
+        System.out.println("Initial Train Consist:");
+        System.out.println(trainConsist);
 
-        passengerBogies.remove("AC Chair");
+        trainConsist.add(2, "Pantry");
 
-        System.out.println("\nAfter Removing 'AC Chair':");
-        System.out.println("Passenger Bogies : " + passengerBogies);
+        System.out.println("\nAfter Inserting Pantry at position 2:");
+        System.out.println(trainConsist);
 
-        System.out.println("\nChecking if 'Sleeper' exists:");
-        System.out.println("Contains Sleeper? : " + passengerBogies.contains("Sleeper"));
+        ((LinkedList<String>) trainConsist).removeFirst();
+        ((LinkedList<String>) trainConsist).removeLast();
 
-        System.out.println("\nFinal Train Passenger Consist:");
-        System.out.println(passengerBogies);
+        System.out.println("\nAfter Removing First and Last Bogie:");
+        System.out.println(trainConsist);
 
-        System.out.println("\nUC2 operations completed successfully...");
+        System.out.println("\nFinal Ordered Train Consist:");
+        System.out.println(trainConsist);
+
+        System.out.println("\nUC4 operations completed successfully...");
+    }
+}
+public class UseCase5TrainConsistMgmt {
+    public static void main(String[] args) {
+
+        System.out.println("========================================");
+        System.out.println(" UC5 - Preserve Insertion Order of Bogies ");
+        System.out.println("========================================\n");
+
+        Set<String> formation = new LinkedHashSet<>();
+
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+        formation.add("Sleeper");
+
+        System.out.println("Final Train Formation:");
+        System.out.println(formation);
+
+        System.out.println("\nUC5 operations completed successfully...");
     }
 }
