@@ -690,3 +690,37 @@ class TrainConsistManagementApp19 {
         System.out.println("\nUC19 operations completed...");
     }
 }
+class TrainConsistManagementApp20 {
+
+    public static void main(String[] args) {
+
+        System.out.println("========================================");
+        System.out.println(" UC20 - Exception Handling During Search ");
+        System.out.println("========================================\n");
+
+        String[] bogies = {"BG101", "BG205", "BG309", "BG412", "BG550"};
+
+        String searchKey = "BG205";
+
+        if (bogies.length == 0) {
+            throw new IllegalStateException("No bogies available for search");
+        }
+
+        boolean found = false;
+
+        for (String b : bogies) {
+            if (b.equals(searchKey)) {
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            System.out.println("Bogie Found: " + searchKey);
+        } else {
+            System.out.println("Bogie Not Found: " + searchKey);
+        }
+
+        System.out.println("\nUC20 execution completed...");
+    }
+}
