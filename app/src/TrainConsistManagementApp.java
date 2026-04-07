@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class TrainConsistApp {
+public class TrainConsistManagementApp {
     public static void main(String[] args) {
 
         System.out.println("========================================");
@@ -16,7 +16,7 @@ public class TrainConsistApp {
     }
 }
 
-public class TrainConsistApp {
+ class TrainConsistManagementApp2 {
     public static void main(String[] args) {
 
         System.out.println("========================================");
@@ -48,7 +48,7 @@ public class TrainConsistApp {
         System.out.println("\nUC2 operations completed successfully...");
     }
 }
-public class TrainConsistApp {
+ class TrainConsistManagementApp3 {
     public static void main(String[] args) {
 
         System.out.println("========================================");
@@ -70,7 +70,7 @@ public class TrainConsistApp {
         System.out.println("\nUC3 operations completed successfully...");
     }
 }
-public class UseCase4TrainConsistMgmt {
+ class TrainConsistManagementApp4 {
     public static void main(String[] args) {
 
         System.out.println("========================================");
@@ -105,7 +105,7 @@ public class UseCase4TrainConsistMgmt {
         System.out.println("\nUC4 operations completed successfully...");
     }
 }
-public class UseCase5TrainConsistMgmt {
+ class TrainConsistManagementApp5 {
     public static void main(String[] args) {
 
         System.out.println("========================================");
@@ -126,7 +126,7 @@ public class UseCase5TrainConsistMgmt {
         System.out.println("\nUC5 operations completed successfully...");
     }
 }
-public class UseCase6TrainConsistMgmt {
+ class TrainConsistManagementApp6 {
     public static void main(String[] args) {
 
         System.out.println("========================================");
@@ -148,7 +148,7 @@ public class UseCase6TrainConsistMgmt {
         System.out.println("\nUC6 operations completed successfully...");
     }
 }
-public class UseCase7TrainConsistMgmt {
+ class TrainConsistManagementApp7 {
 
     static class Bogie {
         String name;
@@ -186,5 +186,53 @@ public class UseCase7TrainConsistMgmt {
         }
 
         System.out.println("\nUC7 sorting completed...");
+    }
+}
+
+class TrainConsistManagementApp8 {
+
+    static class Bogie {
+        String name;
+        int capacity;
+
+        Bogie(String name, int capacity) {
+            this.name = name;
+            this.capacity = capacity;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("========================================");
+        System.out.println(" UC8 - Filter Passenger Bogies Using Streams ");
+        System.out.println("========================================\n");
+
+        List<Bogie> bogies = new ArrayList<>();
+
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("First Class", 24));
+        bogies.add(new Bogie("General", 90));
+
+        System.out.println("Original Bogie List:");
+        for (Bogie b : bogies) {
+            System.out.println(b.name + " -> " + b.capacity);
+        }
+
+        List<Bogie> filteredBogies = bogies.stream()
+                .filter(b -> b.capacity > 60)
+                .collect(Collectors.toList());
+
+        System.out.println("\nFiltered Bogies (Capacity > 60):");
+        for (Bogie b : filteredBogies) {
+            System.out.println(b.name + " -> " + b.capacity);
+        }
+
+        System.out.println("\nOriginal List After Filtering:");
+        for (Bogie b : bogies) {
+            System.out.println(b.name + " -> " + b.capacity);
+        }
+
+        System.out.println("\nUC8 operations completed...");
     }
 }
