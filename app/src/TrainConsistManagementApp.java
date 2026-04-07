@@ -236,3 +236,49 @@ class TrainConsistManagementApp8 {
         System.out.println("\nUC8 operations completed...");
     }
 }
+class TrainConsistManagementApp9 {
+
+    static class Bogie {
+        String name;
+        int capacity;
+
+        Bogie(String name, int capacity) {
+            this.name = name;
+            this.capacity = capacity;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("========================================");
+        System.out.println(" UC9 - Group Bogies by Type ");
+        System.out.println("========================================\n");
+
+        List<Bogie> bogies = new ArrayList<>();
+
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("Sleeper", 70));
+        bogies.add(new Bogie("First Class", 24));
+        bogies.add(new Bogie("AC Chair", 60));
+
+        System.out.println("Original Bogie List:");
+        for (Bogie b : bogies) {
+            System.out.println(b.name + " -> " + b.capacity);
+        }
+
+        Map<String, List<Bogie>> groupedBogies = bogies.stream()
+                .collect(Collectors.groupingBy(b -> b.name));
+
+        System.out.println("\nGrouped Bogies:");
+
+        for (String key : groupedBogies.keySet()) {
+            System.out.println("\n" + key + ":");
+            for (Bogie b : groupedBogies.get(key)) {
+                System.out.println(b.name + " -> " + b.capacity);
+            }
+        }
+
+        System.out.println("\nUC9 operations completed...");
+    }
+}
