@@ -501,3 +501,57 @@ class TrainConsistManagementApp14 {
         System.out.println("\nUC14 operations completed...");
     }
 }
+class TrainConsistManagementApp15 {
+
+    static class CargoSafetyException extends RuntimeException {
+        CargoSafetyException(String message) {
+            super(message);
+        }
+    }
+
+    static class GoodsBogie {
+        String type;
+        String cargo;
+
+        GoodsBogie(String type) {
+            this.type = type;
+            this.cargo = "None";
+        }
+
+        void assignCargo(String cargo) {
+            try {
+                if (type.equals("Rectangular") && cargo.equals("Petroleum")) {
+                    throw new CargoSafetyException("Unsafe: Rectangular bogie cannot carry Petroleum");
+                }
+                this.cargo = cargo;
+                System.out.println("Cargo assigned successfully: " + type + " -> " + this.cargo);
+
+            } catch (CargoSafetyException e) {
+                System.out.println("Exception: " + e.getMessage());
+
+            } finally {
+                System.out.println("Assignment attempt completed for " + type);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("========================================");
+        System.out.println(" UC15 - Safe Cargo Assignment ");
+        System.out.println("========================================\n");
+
+        GoodsBogie b1 = new GoodsBogie("Cylindrical");
+        GoodsBogie b2 = new GoodsBogie("Rectangular");
+
+        b1.assignCargo("Petroleum");   // valid
+        b2.assignCargo("Petroleum");   // invalid, handled
+        b2.assignCargo("Coal");        // valid
+
+        System.out.println("\nFinal State:");
+        System.out.println(b1.type + " -> " + b1.cargo);
+        System.out.println(b2.type + " -> " + b2.cargo);
+
+        System.out.println("\nUC15 operations completed...");
+    }
+}
