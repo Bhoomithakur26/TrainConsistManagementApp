@@ -643,3 +643,50 @@ class TrainConsistManagementApp18 {
         System.out.println("\nUC18 operations completed...");
     }
 }
+
+class TrainConsistManagementApp19 {
+
+    public static void main(String[] args) {
+
+        System.out.println("========================================");
+        System.out.println(" UC19 - Binary Search for Bogie ID ");
+        System.out.println("========================================\n");
+
+        String[] bogieIds = {"BG309","BG101","BG550","BG205","BG412"};
+
+        Arrays.sort(bogieIds);
+
+        System.out.println("Sorted Bogie IDs:");
+        System.out.println(Arrays.toString(bogieIds));
+
+        String key = "BG309";
+
+        int low = 0;
+        int high = bogieIds.length - 1;
+        boolean found = false;
+
+        while (low <= high) {
+
+            int mid = (low + high) / 2;
+
+            int cmp = key.compareTo(bogieIds[mid]);
+
+            if (cmp == 0) {
+                found = true;
+                break;
+            } else if (cmp < 0) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        if (found) {
+            System.out.println("\nBogie ID " + key + " FOUND");
+        } else {
+            System.out.println("\nBogie ID " + key + " NOT FOUND");
+        }
+
+        System.out.println("\nUC19 operations completed...");
+    }
+}
